@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Aula07 - Operadores Relacionais</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <section>
+        <h1>Operadores Relacionais</h1>
+            <h2>Como fazer comparações em PHP</h2>
+            <p>Os operadores relacionais, como o nome diz, serve para compararmos valores entre variáveis.</p>
+            <ul>
+                <li>Maior que: <code>&gt;</code></li>
+                <li>Menor que: <code>&lt;</code></li>
+                <li>Maior ou Igual a: <code>&gt;=</code></li>
+                <li>Menor ou Igual a: <code>&lt;=</code></li>
+                <li>Diferente de: <code>&lt;&gt;</code> ou <code>!=</code></li>
+                <li>Igual a: <code>==</code></li>
+                <li>Idêntico a: <code>===</code></li>
+            </ul>
+            <p>Repare que temos o sinal que representa igualdade e o que representa igualdade exclusiva, também conhecido como idêntico a. A diferença é que o primeiro vai comparar se os valores são iguais, independente do tipo de variável. O segundo só vai retornar verdadeiro para a igualdade se os valores forem iguais E a variável for do mesmo tipo.</p>
+            <p>Se, por exemplo tivermos a variável <code>$a = 2</code> e a variável <code>$b = '2'</code>, <code>a</code> é uma variável tipo <code>number</code> e <code>b</code> tipo <code>string</code>. O sinal de "Igual a" vai retornar verdadeiro, mas o "Idêntico a" retornará falso.</p>
+            <h2>Operador Ternário</h2>
+            <p>O operador ternário verifica, em uma linha de código, se uma expressão é verdadeira ou falsa, e retorna um valor para cada alternativa. Para tanto, escrevemos uma expressão lógica para ser testada, seguida do sinal de <code>?</code>, logo depois colocamos o retorno caso a expressão seja verdadeira, adicionamos o sinal <code>:</code> e por fim, o retorno caso falso.</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    $maior = $a &gt; $b ? $a : $b;
+</code>
+                </pre>
+                <p>Aqui temos que, se <code>a</code> for maior que <code>b</code>, retornaremos o valor de <code>a</code> para dentro da variável <code>maior</code>, do contrário, retornaremos o valor de <code>b</code>.</p>
+            <h2>Operadores lógicos</h2>
+            <p>São operadores que verificam expressões do estilo E e OU. Operações comuns executadas por computadores incontáveis vezes por dia!</p>
+            <ul>
+                <li><code>!</code> Negação (NÃO lógico)</li>
+                <li><code>and ou &&</code> Conjunção (E lógico)</li>
+                <li><code>or ou ||</code> Disjunção (OU lógico)</li>
+                <li><code>xor</code> Disjunção Exclusiva (XOU lógico)</li>
+            </ul>
+                <h3 class="exemplo">Operações Lógicas</h3>
+                <pre class="codigo">
+<code>
+    Negação             Resultado
+    !true               false
+    !false              True
+
+
+    Conjunção           Resultado
+    true && true        True
+    true && false       false
+    false && true       false
+    false && false      false
+
+
+    Disjunção           Resultado
+    true || true        True
+    true || false       True
+    false || true       True
+    false || false      false
+
+    Disjunção           Resultado
+    true || true        false
+    true || false       True
+    false || true       True
+    false || false      false
+</code>
+                </pre>
+    </section>
+</body>
+</html>

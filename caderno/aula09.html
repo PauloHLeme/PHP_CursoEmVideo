@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Aula09 - Estrutura Condicional if</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <section>
+        <h1>Estrutura Condicional if</h1>
+            <h2>Como criar condições em PHP</h2>
+            <p>Condições são situações onde o código se divide em duas condições distintas, que serão executadas ou não de acordo com uma condição lógica que definirmos.</p>
+            <p>É como se tivéssemos dois blocos de códigos diferentes, para duas situações diferentes. Se a condição der o resultado a, executamos o primeiro bloco e não executamos o segundo, do contrário, executamos o segundo e o primeiro é quem fica inativo.</p>
+            <p>Para representarmos as condições em PHP, temos a função <code>if</code>.</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    if($idade>$b){
+        $vota = true;
+    }
+        else{
+    $vota = false;
+    }
+</code>
+                </pre>
+            <h2>Condições Aninhadas</h2>
+            <p>Existirão casos, váaaaaarios casos, onde uma única condição não basta, pois temos mais de dois caminhos.</p>
+            <p>Nesse caso, temos a possibilidade de realizar aninhamentos de condições, isso é, colocar condições <code>if</code> dentro de outras condições <code>if</code> anteriores e irmos bifurcando os caminhos conforme necessário.</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <p>No nosso exemplo anterior, com a votação, não colocamos por exemplo a condição do voto opcional, que acontece quando a pessoa tem entre 16 e 18 anos.</p>
+                <p>Para solucionarmos essa questão, podemos fazer uso das condições aninhadas!</p>
+                <pre class="codigo">
+<code>
+    if ($idade &lt;16){
+        $voto = "não vota";
+    }else{
+        if($idade &gt;=16 && &lt;18){
+            $voto = "voto opcional";
+        }else{
+            $voto = "voto obrigatório";
+        }
+    }
+</code>
+                </pre>
+                <p>Pronto! Agora temos que, <strong>SE</strong> a pessoa for menor de 16 anos, ela não pode votar. <strong>SENÃO</strong>, existem duas possibilidades: <strong>SE</strong> tiver entre 16 e 18 anos, o voto é opcional, ou <strong>SENÃO</strong>, obrigatório. Por isso colocamos o segundo <code>if</code> dentro do primeiro <code>else</code>, pois aninhamos essa bifurcação apenas se a primeira for falsa.</p>
+
+                <h3>Dica</h3>
+                <p>Temos ainda o comando <code>elseif</code>, que adiciona um comando <code>if</code> logo em seguida do <code>else</code>, eliminando um bloco extra.</p>
+                
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    if ($idade &lt;16){
+        $voto = "não vota";
+    }elseif($idade &gt;=16 && &lt;18){
+        $voto = "voto opcional";
+    }else{
+        $voto = "voto obrigatório";
+    }
+</code>
+                </pre>
+                <p>Percebeu só? Ao juntarmos os comandos em um <code>elseif</code>, conseguimos diminuir o nosso código e ter o mesmo resultado!</p>
+    </section>
+</body>
+</html>

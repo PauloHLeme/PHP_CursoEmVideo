@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Aula05 - Operações Aritméticas</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <section>
+        <h1>Operações Aritméticas</h1>
+        <p>Os operadores aritméticos são utilizados para fazerem cálculos simples, assim como a matemática no dia a dia.</p>
+            <h2>Operadores Aritméticos</h2>
+            <p>Em PHP, os operadores são bem simples:</p>
+            <ul>
+                <li>Soma: <code>+</code></li>
+                <li>Subtração: <code>-</code></li>
+                <li>Multiplicação: <code>*</code></li>
+                <li>Divisão: <code>/</code></li>
+                <li>Módulo (resto de divisão): <code>%</code></li>
+            </ul>
+                <h3>Dica!</h3>
+                <p>Vale lembrar que se colocarmos o operador dentro de uma concatenação, ele não assumirá a função de operador, mas será exibido como um caractere comum. Dessa forma, para representarmos a soma de <code>$n1 + $n2</code>, sendo <code>n1 = 2</code> e <code>n2 = 3</code>, temos que escrever: <code>"A soma vale". ($n1+$n2)</code>, assim então recebendo como retorno <code>A soma vale 5</code>. Do contrário não conseguiríamos somar dentro da concatenação. Então, se escrevêssemos <code>"A soma vale $n1 + $n2"</code>, teríamos como saída <code>"A soma vale 2+3"</code>.</p>
+            <h2>Ordem de Precedência</h2>
+            <p>Se tivermos vários operadores em uma mesma expressão, eles possuem uma ordem de precedência que deve ser seguida, e ela é exatamente igual ao da matemática do dia a dia. Ou seja</p>
+            <ol>
+                <li>Parênteses: <code>()</code></li>
+                <li>Multiplicação, divisão e módulo: <code>* / %</code></li>
+                <li>Soma e subtração: <code>+ -</code></li>
+            </ol>
+            <h2>Valores Personalizados</h2>
+            <p>Em PHP, temos a capacidade de atribuirmos valores personalizados para a variável direto pela URL do nosso navegador. Traduzindo, podemos colocar lá no caminho que aparece no topo do nosso navegador, logo após o nome do arquivo, alguns dados que vão ditar para o código qual valor cada variável vai receber.</p>
+            <p>Para isso, temos dois passos básicos para seguir:</p>
+            <p>Primeiro, devemos fazer as nossas variáveis receberem valores externos. Isso é feito pelo comando <code>$_GET[""]</code>.</p>
+            <p>Após isso, vamos no final da nossa URL, e digitamos os valores que queremos da seguinte forma <code>?a=3</code>. Vamos ao exemplo:</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <p>Vamos considerar que nossa URL é:</p>
+                <p><code class="codigo">http://localhost/aula05/operadores.php</code></p>
+                <P>Nesse caso, para definirmos os valores de duas variáveis como 3 e 2, colocaríamos no final:</P>
+                <p><code class="codigo">http://localhost/aula05/operadores.php?a=3&b=2</code></p>
+                <p>Enquanto isso, dentro do nosso código, as variáveis não recebem um valor fixo, ao invés disso, receberão o comando <code>_GET[""]</code> para ficarem preparadas para os valores que virão:</p>
+                <pre class="codigo">
+<code>
+    $n1 = _GET["a"];
+    $n2 = _GET["b"];
+</code>
+                </pre>
+                <p>Pronto, agora ao executarmos o arquivo adicionando as variáveis desejadas no final da URL, teremos os cálculos feitos com as variáveis de acordo com os valores que passamos!</p>
+                <p>Essa forma não é ainda interativa com o usuário, mas serve para trabalharmos com testes com alterações de variáveis.</p>
+                <p>Veremos mais adiante no curso soluções com base em formulários, para isso, você precisa ter calma, Gafanhoto!</p>
+            <h2>Outras operações matemáticas</h2>
+            <p>Para os demais cálculos matemáticos não cobertos pelas operações aritméticas, o PHP conta com várias funções específicas que nos fornecem os cálculos necessários. São alguns deles, por exemplo:</p>
+            <ul>
+                <li><code>abs()</code>: Retorna o valor absoluto, o módulo do valor, sem sinal de negativo, por exemplo</li>
+                <li><code>pow()</code>: Potenciação</li>
+                <li><code>sqrt()</code>: Raiz quadrada</li>
+                <li><code>round()</code>: Arredondamento matemático padrão</li>
+                <li><code>ceil()</code>: Arredonda sempre para cima (teto)</li>
+                <li><code>floor()</code>: Arredonda sempre para baixo (chão)</li>
+                <li><code>intval()</code>: Pega apenas a parte inteira de um valor quebrado</li>
+                <li><code>number_format()</code>: utilizado para formatar números, colocando a quantidade máxima de casas decimais, por exemplo. Ou ainda trocar o . por ,</li>
+            </ul>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    $v1 = $_GET["x"];
+    $v2 = $_GET["y"];
+
+    echo "Valores recebidos: $v1 e $v2";
+    echo "O valor absoluto de $v2 é igual a ". abs($v2);
+    echo "&lt;br&gt;O valor de $v1 &lt;sup&gt;$v2&lt;/sup&gt; é ". pow($v1, $v2);
+    echo "&lt;br&gt;A raiz de $v1 é ". sqrt($v1);
+    echo "&lt;br&gt;O valor arredondado de $v2 é ". round($v2);
+    echo "&lt;br&gt;A parte inteira de $v2 é ". intval($v2);
+    echo "&lt;br&gt;O valor de $v2 em moeda é 
+          R$ ". number_format($v2,2,',','.');
+</code>
+                </pre>
+                <p>Dessa forma, se definirmos na URL que <code>?x=4&y=3.5</code>, a saída será:</p>
+                <pre class="codigo">
+    
+    Valores recebidos: 4 e 3.5
+    O valor absoluto de 3.5 é igual a 3.5
+    O valor de 4 <sup>3.5</sup> é 128
+    A raiz de 4 é 2
+    O valor arredondado de 3.5 é 4
+    A parte inteira de 3.5 é 3
+    O valor de 3.5 em moeda é R$ 3,50
+                </pre>
+    </section>
+</body>
+</html>

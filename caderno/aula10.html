@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Aula10 - Estrutura Condicional Switch</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <section>
+        <h1>Estrutura Condicional Switch</h1>
+            <h2>Condições de múltiplos casos</h2>
+            <p>Se precisarmos testar várias situações para uma mesma variável, ou seja, se tivermos várias possibilidades de retorno, temos a estrutura <code>switch</code>.</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    switch ($op){
+        case 1:
+            echo "A";
+            break;
+        case 2:
+            echo "B";
+            break;
+        default:
+            Echo "Erro";
+    }
+</code>
+                </pre>
+                <p>Ao ilustrarmos o exemplo, colocamos apenas dois comandos <code>case</code>, mas podemos utilizar quantos forem necessários. Ao final ainda, podemos fazer uso do comando <code>default</code>, que serve para retornar uma mensagem caso nenhum dos testes seja a solução.</p>
+                <p>Caso o valor da variável <code>op</code> fosse 1, o código executaria apenas o <code>case</code> de cima, pois é o correspondente. Caso a variável valesse 2, executaria apenas o segundo, pulando o primeiro, e caso fosse outro valor, executaria o comando <code>default</code>.</p>
+
+                <h3>Dica</h3>
+                <p>Perceba que após cada <code>case</code>, temos um comando <code>break</code>. Ele serve para parar a execução do código <code>switch</code>, pois já achamos a linha desejada.</p>
+                <p>Caso não colocássemos o <code>break</code>, o código começaria da linha pertinente a execução, mas continuaria rodando para todas as linhas abaixo dele.</p>
+                <p>Dessa forma, é importante colocar o <code>break</code> ao final de cada case.</p>
+            <h2>Condições de Múltiplos casos</h2>
+            <p>Temos ainda a opção de executar uma saída única para mais de um <code>case</code>, caso seja necessário. Nesse caso, a sintaxe se dá da seguinte maneira:</p>
+                <pre class="codigo">
+<code>
+    Switch ($op){
+        case 1:
+        case 2:
+        case 3:
+            echo "A";
+            break;
+        case 4:
+        case 5:
+            echo "B";
+            break;
+        default:
+            echo "C";
+    }
+</code>
+                </pre>
+
+    </section>
+</body>
+</html>

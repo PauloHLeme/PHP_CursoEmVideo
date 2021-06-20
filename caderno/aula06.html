@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Aula06 - Operadores de Atribuição</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <section>
+        <h1>Operadores de Atribuição</h1>
+        <p>Atribuição é quando você insere, atribui um valor para dentro de uma variável. Os operadores de atribuição são os sinais utilizados para inserir o valor para a variável</p>
+            <h2>Quais são os operadores de operação?</h2>
+            <ul>
+                <li>Adição: <code>+</code> ou <code>+=</code></li>
+                <li>Subtração: <code>-</code> ou <code>-=</code></li>
+                <li>Multiplicação: <code>*</code> ou <code>*=</code></li>
+                <li>Divisão: <code>/</code> ou <code>/=</code></li>
+                <li>Módulo: <code>%</code> ou <code>%=</code></li>
+                <li>Concatenação: <code>.</code></li>
+            </ul>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    $a = $a + b     ou      $a += $b
+    $a = $a - b     ou      $a -= $b
+    $a = $a * b     ou      $a *= $b
+    $a = $a / b     ou      $a /= $b
+    $a = $a % b     ou      $a %= $b
+    $a = $a . b     ou      $a .= $b
+</code>
+                </pre>
+                <p>No exemplo da soma, a variável a está recebendo (=) o valor de a + b. Podemos tanto escrever a forma completa, que é a primeira coluna, quanto a forma resumida, da segunda coluna.</p>
+            <h2>Operadores de Incremento</h2>
+            <p>Os operadores de incremento servem exatamente para o que o nome deles diz, incrementar o valor da variável. Existem dois tipos e cada um pode ser utilizado em duas situações:</p>
+            <ul>
+                <li>Pré Incremento: $a = $a +1 ou <code>$a++</code></li>
+                <li>Pós Incremento: $a = $a +1 ou <code>++$a</code></li>
+                <li>Pré Decremento: $a = $a -1 ou <code>$a--</code></li>
+                <li>Pós Decremento: $a = $a -1 ou <code>--$a</code></li>
+            </ul>
+            <p>A utilização do pré ou pós incremento varia de quando desejamos que a alteração ocorra. Se quisermos utilizar a variável no valor original, e depois realizarmos o incremento, utilizamos o pós incremento. Caso seja necessário incrementar o valor antes de o utilizar, fazemos uso do pré.</p>
+            <h2>Comentários</h2>
+            <p>Comentários são essenciais para nos lembrarmos no futuro sobre o que fizemos nos nossos códigosp presentes ou até mesmo para explicar para outros desenvolvedores que pegarem seu código.</p>
+            <p>Em PHP podemos utilizar:</p>
+            <ul>
+                <li><code>//</code> : Tudo o que for escrito depois das duas barras, mas na mesma linha, serão dados como comentários</li>
+                <li><code>#</code> : Funciona igual ao comentário anterior</li>
+                <li><code>/* */</code> : Tudo o que estiver dentro desses símbolos, serão interpretados como comentários, independente de quantas linhas estejam dentro deles.</li>
+            </ul>
+            <h2>Referências entre Variáveis</h2>
+            <p>Podemos utilizar  uma variável para servir como entrada de valor para outra variável, como já vimos anteriormente. Mas ao mudar o valor de uma delas, a outra permanece inalterada.</p>
+            <p>O PHP nos permite ligar duas variáveis, de forma que uma referencie a outra. Dessa forma, se fizermos alteração em uma, a outra também vai receber tal mudança.</p>
+            <p>Para isso, utilizamos o <code>&</code></p>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    $a = 3;
+    $b = 5;
+
+    //sem referenciais         //com referenciais
+    $b = $a;                   $b = &$a;
+    $b += 5;                   $b += 5;  
+</code>
+                </pre>
+                <p>Nos exemplos acima, se não utilizarmos a chamada referencial, e pedirmos para retornar os valores de <code>a</code> e <code>b</code>, teremos que <code>a</code> vale <code>3</code> e <code>b</code> vale <code>8</code>.</p>
+                <p>Já com o uso de referencial, tanto <code>a</code> quanto <code>b</code> agora valem <code>8</code>! Com um único cálculo, conseguimos transformar as duas variáveis, pois elas estão ligadas.</p>
+            <h2>Variáveis de variáveis</h2>
+            <p>Esse é um conceito pouco utilizado no dia a dia, mas existente no PHP.</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    $site = "cursoemvideo";
+    $$site = "cursoPHP";
+
+    echo $site;
+    echo $cursoemvideo;
+</code>
+                </pre>
+                <p>Olhe bem para o exemplo acima. A primeira variavel, de nome <code>site</code> foi criada normalmente. Na criação da segunda, foi utilizado dois sinais de <code>$$</code>. Dessa forma, foi criada uma variável de uma variável. Não criamos uma nova variável site, mas sim uma variável que vai receber, como nome, o valor da "variável pai".</p>
+                <p>Por isso que no nosso exemplo, ao darmos o comando echo, temos uma variável <code>site</code> e uma variável nova chamada <code>cursoemvideo</code>. Pois ela foi gerada com o nome contido no valor da variável anterior.</p>
+    </section>
+</body>
+</html>

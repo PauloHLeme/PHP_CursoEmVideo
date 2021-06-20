@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Aula08 - Integração HTML5 + PHP</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <section>
+        <h1>Integração em HTML5 + PHP</h1>
+            <h2>Formulários em HTML5</h2>
+            <p>Todo formulário em HTML é executado dentro da tag <code>form</code>. Dentro da tag temos que ter os parâmetros <code>method = ""</code> e <code>action = ""</code>. O primeiro indica a forma de captura dos dados, que pode ser <code>get</code> ou <code>post</code> e o segundo marca o arquivo onde armazenaremos os dados, que é um arquivo em PHP.</p>
+            <p>Dentro do formulário, temos <code>inputs</code> que servirão para inserirmos os valores e um <code>input</code> do tipo <code>submit</code>, que serve para enviarmos os dados justamente para o arquivo que especificamos dentro do parâmetro <code>action</code>.</p>           
+            <p>É importante que todos os <code>inputs</code> de entrada de valor do formulário tenham também o atribulo <code>name= ""</code>, pois o PHP vai fazer uso deles.</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <p>Abaixo, temos o exemplo do código HTML:</p>
+                <pre class="codigo">
+<code>
+    &lt;form method="get" action="dados.php"&gt;
+        &lt;label for="v"&gt;Valor&lt;/label&gt;&lt;input type="text" name="v"&gt;
+        &lt;input type="submit" value="Calcular" &gt;
+    &lt;/form&gt;
+</code>
+                </pre>
+                <p>Aqui, utilizamos o método <code>get</code> para a coleta dos dados. Ele é similar ao que vínhamos fazendo até agora, ao digitar os valores da variável no fim da URL do site, mas neste caso, a página fará isso pra gente ao apertarmos o botão <code>Calcular</code>.</p>
+                <p>Agora, temos o que irá internamente no código PHP:</p>
+                <pre class="codigo">
+<code>
+    &lt;?php
+        $valor = $_GET["v"];
+        echo "Digitou $valor.";
+    ?&gt;
+</code>
+                </pre>
+                <p>Aqui, para pegarmos o valor da variável, como utilizamos o <code>method= "get"</code>, temos que utilizar do <code>$_GET</code> para puxar o valor. Se ao invés disso, tivéssemos utilizado o <code>method= "post"</code>, faríamos uso do <code>$_POST</code>.</p>
+            <h2>Utilizando outros tipos de controle</h2>
+            <p>Podemos utilizar como entrada todos os tipos de dados de controle que existem nos formulários. Dessa forma, podemos por exemplo checkbox, listas de seleção, etc. Temos entretanto que ficar de olho pois, algumas delas, como as radio por exemplo, temos que inserir um parâmetro <code>value=""</code> onde vamos dizer qual o valor que queremos que seja retornado.</p>
+            
+            <h2>CSS editado com PHP</h2>
+            <p>O código php não precisa ser feito somente dentro do body de um HTML, podemos também fazer ele no Head, e assim criar as variáveis antes de criar o style do seu site.</p>
+            <p>Dessa forma, podemos criar variáveis que recebam valores específicos para as CSS.</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    &lt;head&gt;
+        &lt;?php
+            $txt = isset($_GET['t'])? $_GET['t']: 'lorem ipsum';
+            $tam = isset($_GET['tam'])? $_GET['tam']: '12pt';
+            $cor = isset($_GET['cor'])? $_GET['cor']: '#000000';
+        ?&gt;
+        &lt;style&gt;
+            span.texto{
+                font-size: &lt;?php echo $tam; ?&gt;;
+                color: &lt;?php echo $cor; ?&gt;;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;?php
+        echo "&lt;span class= 'texto'&gt;$txt&lt;/span&gt;";
+        ?&gt;
+    &lt;/body&gt;
+</code>
+                </pre>
+                <p>Nesse exemplo, temos a tag <code>?php ?</code> sendo utilizada quatro vezes:</p>
+                <ul>
+                    <li>Na primeira, dentro do head e antes do <code>style</code>, para criarmos as variáveis que serão utilizadas.</li>
+                    <li>Na segunda e terceira vez, para colocarmos o valor definido pelo PHP nos atributos f<code>ont-size</code> e <code>color</code>.</li>
+                    <li>E no quarto e último uso, já dentro do body, para chamar a variável <code>txt</code>.</li>
+                </ul>
+    </section>
+</body>
+</html>

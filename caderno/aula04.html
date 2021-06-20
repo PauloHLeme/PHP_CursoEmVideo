@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Aula04 - Variáveis em PHP</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <section>
+        <h1>Variáveis em PHP</h1>
+        <p>De início, com os exemplos dados em aula, aprendemos o comando <code>echo</code>, que é utilizado para exibir o que se deseja na tela.</p>
+        <p>Dentro do comando <code>echo</code>, podemos colocar tanto sentenças quanto tags em HTML</p>
+            <h2>Tá, mas e o que são as variáveis?</h2>        
+            <p>As variáveis podem ser explicadas como sendo uma espécie de armário, que contém espaços, e o espaço pode receber alguma coisa.</p>
+            <p>Dessa forma, se eu crio um espaço chamado <code>idade</code>, posso colocar nele um valor de <code>3</code>.</p>
+            <p>Em PHP, declaramos a variável com o símbolo <code>$</code>, em seguida damos um nome <em>em letras minusculas e sem acentuação</em>, o sinal de igual para atribuirmos um valor, que será escrito logo em seguida, e para fechar a linha, devemos terminar com o <code>;</code>.</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    $idade = 3;
+        ou,
+    $sal = 1825.54;
+        ou ainda,
+    $nome = "Leonardo";
+        ou também,
+    $casado = false;
+</code>
+                </pre>
+                <p>Nesses exemplos, cada variável tem um valor diferente. A <strong>idade</strong> é um tipo de dado <strong>Inteiro</strong>, o <strong>salário</strong> é <strong>Real</strong>, o <strong>nome</strong> é <strong>Caractere</strong> e o <strong>casado</strong> é <strong>Lógico</strong>.</p>
+                <p>O PHP trabalha os tipos de dados dinamicamente, sem ser necessário declarar o tipo de cada variável, mas podemos forçar uma conversão com uma declaração conhecida como <code>typecast</code>.</p>
+                <ul>
+                    <li>Inteiro: <code>(int),(integer)</code></li>
+                    <li>Real: <code>(real), (float), (double)</code></li>
+                    <li>Caractere: <code>(string)</code></li>
+                    <li>Lógico: Não existe, pois variáveis lógicas recebem apenas o valor <code>1</code> se forem <code>true</code> ou ficam vazias se forem <code>false</code></li>
+                </ul>
+            <h2>Como fazer Concatenação?</h2>
+            <p>Concatenação é realizar a exibição de mensagens misturando texto e variáveis.</p>
+            <p>Para isso, o PHP também nos facilita bastante, pois se colocarmos a saída entre aspas duplas, a concatenação vai ser feita de forma muito simples.</p>
+                <h3 class="exemplo">Exemplo</h3>
+                <pre class="codigo">
+<code>
+    $idade = 28;
+    $nome = "Paulo";
+
+    echo $nome. " tem". $idade. " anos!"
+            ou simplesmente,
+    echo "$nome tem $idade anos!"
+</code>
+                </pre>
+                <p>E, simples assim, teremos a saída com as variáveis sendo substituídas por seus valores. Nesse caso, descobriríamos que: <ins>Paulo tem 28 anos!</ins></p>
+                <p>E se, ao invés de aspas duplas "" utilizarmos as aspas simples '', vamos ter como saída apenas texto. Então se utilizássemos as aspas simples no exemplo acima, a saída seria: <ins>$nome tem $idade anos!</ins></p>
+    </section>
+</body>
+</html>
